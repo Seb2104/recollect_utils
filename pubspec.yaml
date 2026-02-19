@@ -1,7 +1,8 @@
 name: recollect_utils
 description: "All you'll ever need to create windows applications"
-version: 0.0.1
+version: 1.0.0
 homepage: https://recollect.cc
+repository: https://github.com/Seb2104/recollect_utils.git
 topics:
   - extensions
   - utilities
@@ -17,6 +18,7 @@ dependencies:
   flutter:
     sdk: flutter
   unicode: ^1.1.9
+  path: ^1.9.1
 
 dev_dependencies:
   flutter_test:

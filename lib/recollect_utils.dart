@@ -90,7 +90,6 @@ export 'modules/colour/colour.dart';
 export 'modules/menu/menu.dart';
 export 'modules/colour_picker/colour_picker.dart';
 
-
 part 'core/constants/bases.dart';
 part 'core/constants/colour_pickers.dart';
 part 'modules/colour/constants/colours.dart';
