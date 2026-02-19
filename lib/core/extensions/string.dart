@@ -1,0 +1,234 @@
+part of '../../recollect_utils.dart';
+
+/// Extensions on [String] for case conversion, validation, truncation,
+/// and general text manipulation.
+///
+/// These are thin wrappers around the [Strings] utility class, exposed as
+/// extension methods so you can chain them naturally:
+///
+/// ```dart
+/// 'hello world'.toProperCase()   // 'Hello World'
+/// 'DartVM'.toSnakeCase()         // 'dart_vm'
+/// 'Hello World'.abbreviate(8)    // 'Hello...'
+/// 'abc123'.isNumeric()           // false
+/// 'LOUD'.isUpperCase()           // true
+/// ```
+extension StringEx on String {
+  /// Abbreviate a string to [maxWidth] by truncating the
+  /// string and adding '...' to then truncated string.
+  /// If [offset] is passed then the we begin abbreviating
+  /// from that index into the string.
+  /// ```dart
+  /// 'Hello World'.abbreviate(6) == 'Hel...'
+  /// ```
+  /// The minimum value for [maxWidth] is 4
+  String abbreviate(int maxWidth, {int offset = 0}) =>
+      Strings.abbreviate(this, maxWidth);
+
+  /// true if the the String is Strings.
+  /// A string that is zero length or only contains whitespace is
+  /// considered blank.
+  bool isBlank() => Strings.isBlank(this);
+
+  /// true if the String is not Strings.
+  /// A string that is zero length or only contains whitespace is
+  /// considered blank.
+  bool isNotBlank() => Strings.isNotBlank(this);
+
+  /// Returns true if the String does not contain upper case letters.
+  ///
+  /// If the String is null then we return true.
+  ///
+  ///
+  /// Example:
+  ///     print("camelCase".isLowerCase());
+  ///     => false
+  ///
+  ///     print("dart".isLowerCase());
+  ///     => true
+  ///
+  ///     print("".isLowerCase());
+  ///     => false
+  ///
+  bool isLowerCase() => Strings.isLowerCase(this);
+
+  /// Checks if the String is a number by attempting to parse it
+  /// as a double.
+  /// INFINITY and NaN are not treated as numbers.
+  ///
+  /// ```dart
+  /// '1.20'.isNumeric();
+  /// -> true
+  /// ```
+  bool isNumeric() => Strings.isNumeric(this);
+
+  /// returns true if the String only contains
+  /// ascii characters. (0 - 128)
+  ///
+  /// ```dart
+  /// 'abcde'.isAcii();
+  /// -> true
+  /// ```
+  bool isAscii() => Strings.isAscii(this);
+
+  /// Returns true if the String does not contain any lower case letters.
+  ///
+  /// Example:
+  /// ```dart
+  ///     print("CamelCase".isUpperCase());
+  ///     => false
+  ///
+  ///     print("DART".isUpperCase());
+  ///     => true
+  ///
+  ///     print("".isUpperCase());
+  ///     => false
+  /// ```
+  ///
+  bool isUpperCase() => Strings.isUpperCase(this);
+
+  /// Returns the first [length] characters from the String.
+  /// If [length] is longer than the String then the result is padded
+  /// according to [pad].
+  ///
+  /// ```dart
+  /// 'ab'.left(3, pad: Pad.left);
+  /// -> ' ab'
+  /// ```
+  String left(int length, {Pad pad = Pad.none}) =>
+      Strings.left(this, length, pad: pad);
+
+  /// Returns a string with reversed order of characters.
+  ///
+  /// Example:
+  /// ```dart
+  ///     print("hello".reverse());
+  ///     => olleh
+  /// ```
+  String reverse() => Strings.reverse(this);
+
+  /// Returns the right 'n' characters from  the String.
+  ///
+  /// If [length] is greater than the length of this then padding
+  /// is applied according to [pad].
+  ///
+  /// ```dart
+  /// 'ab'.right(3, pad: Pad.right)
+  /// -> 'ab '
+  /// ```
+  String right(int length, {Pad pad = Pad.none}) =>
+      Strings.right(this, length, pad: pad);
+
+  /// Returns true if the String starts with a lower case character.
+  ///
+  /// Returns false if the String is empty.
+  ///
+  /// Example:
+  /// ```dart
+  ///     print("camelCase".startsWithLowerCase());
+  ///     => true
+  ///
+  ///     print("".startsWithLowerCase());
+  ///     => false
+  /// ```
+  bool startsWithLowerCase() => Strings.startsWithLowerCase(this);
+
+  /// Returns true if the String starts with an upper case character.
+  ///
+  /// Returns false if the String is empty.
+  ///
+  /// Example:
+  /// ```dart
+  ///     print("Dart".startsWithUpperCase());
+  ///     => true
+  ///
+  ///     print("".startsWithUpperCase());
+  ///     => false
+  ///```
+  bool startsWithUpperCase() => Strings.startsWithUpperCase(this);
+
+  /// Returns the String in the form "UpperCamelCase" or "lowerCamelCase".
+  ///
+  /// If [lower] is true, then the first character will be lower case.
+  ///
+  ///
+  /// Example:
+  /// ```dart
+  ///      print("dart_vm".camelize());
+  ///      => DartVm
+  /// ```
+  String toCamelCase({bool lower = false}) =>
+      Strings.toCamelCase(this, lower: lower);
+
+  /// Returns the String with the first character capitalized.
+  ///
+  /// Example:
+  /// ```dart
+  ///     print("dart".capitalize());
+  ///     => Dart
+  /// ```
+  String toCapitalised() => Strings.toCapitalised(this);
+
+  /// Returns an escaped string.
+  /// The following characters are escaped
+  ///```text
+  /// tab
+  /// newline
+  /// carriage return
+  /// "
+  /// '
+  /// $
+  ///```
+  ///
+  /// Example:
+  /// ```dart
+  ///     print("Hello 'world' \n".toEscaped());
+  ///     => 'Hello \'world\' \n'
+  /// ```
+  String toEscaped({String Function(int charCode)? encode}) =>
+      Strings.toEscape(this, encode: encode);
+
+  /// Returns an escaped string.
+  /// The following characters are escaped
+  ///
+  ///```text
+  /// tab
+  /// newline
+  /// carriage return
+  /// ```
+  ///
+  /// Example:
+  /// ```dart
+  ///     print("Hello 'world' \n".toPrintable());
+  ///     => 'Hello \'world\' \n'
+  /// ```
+  String toPrintable() => Strings.toPrintable(this);
+
+  /// Converts the String to proper case by capitalising
+  /// the first letter of each word and forcing all other characters
+  /// to lower case.
+  ///
+  /// Example:
+  /// ```dart
+  /// "one two".toProperCase();
+  /// -> "One Two"
+  /// ```
+  String toProperCase() => Strings.toProperCase(this);
+
+  /// Converts the String to snake_case by
+  /// inserting an underscore before each
+  /// sequence of upper case letters and
+  /// changing all upper case letters to lowercase.
+  ///
+  /// Example:
+  /// ```dart
+  ///     print("DartVM DartCore".toSnakeCase());
+  ///     => dart_vm dart_core
+  /// ```
+  String toSnakeCase() => Strings.toSnakeCase(this);
+
+  /// Compare two strings ignoring case.
+  /// If rhs is null then returns false.
+  /// Returns true, if both are the same, ignoring case.
+  bool equalsIgnoreCase(String? rhs) => Strings.equalsIgnoreCase(this, rhs);
+}
