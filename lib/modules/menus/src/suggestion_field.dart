@@ -33,7 +33,12 @@ class _SuggestionFieldState extends State<SuggestionField> {
           SizedBox(
             height: widget.height,
             width: widget.width * 0.75,
-            child: TextField(controller: _controller),
+            child: TextField(
+              controller: _controller,
+              onSubmitted: (value) {
+                widget.onSelected.call(value);
+              },
+            ),
           ),
           MenuDropDown(
             height: widget.height,
