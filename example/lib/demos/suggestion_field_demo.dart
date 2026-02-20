@@ -22,7 +22,6 @@ class _SuggestionFieldDemoState extends State<SuggestionFieldDemo> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SuggestionField(
-                colour: AppTheme.surface(context).colour,
                 height: 50,
                 width: 100,
                 items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -38,7 +37,6 @@ class _SuggestionFieldDemoState extends State<SuggestionFieldDemo> {
                   print(value);
                 },
                 // colour: AppTheme.surface(context).colour,
-                colour: Colours.white,
                 items: [
                   8,
                   9,

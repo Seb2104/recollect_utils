@@ -5,7 +5,7 @@ class SuggestionField extends StatefulWidget {
   final double width;
   final List<dynamic> items;
   final Function(dynamic value) onSelected;
-  final Colour colour;
+  final BoxDecoration decoration;
 
   const SuggestionField({
     super.key,
@@ -13,7 +13,7 @@ class SuggestionField extends StatefulWidget {
     required this.onSelected,
     this.height = 30,
     this.width = 100,
-    this.colour = Colours.transparent,
+    this.decoration = const BoxDecoration(color: Colours.white),
   });
 
   @override
@@ -28,7 +28,9 @@ class _SuggestionFieldState extends State<SuggestionField> {
     return Container(
       height: widget.height,
       width: widget.width,
-      decoration: BoxDecoration(color: widget.colour),
+      decoration: widget.decoration.copyWith(
+        color: AppTheme.surface(context).colour,
+      ),
       child: Row(
         children: [
           SizedBox(
@@ -59,7 +61,6 @@ class _SuggestionFieldState extends State<SuggestionField> {
             height: widget.height,
             dropdownWidth: widget.width,
             width: widget.width * 0.25,
-            colour: widget.colour,
             iconSize: 16,
             items: widget.items,
             onSelected: (value) {
