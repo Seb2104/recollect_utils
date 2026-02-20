@@ -153,7 +153,6 @@ class _MenuDropDownState extends State<MenuDropDown> {
                       child: ListView.builder(
                         controller: _scrollController,
                         shrinkWrap: true,
-                        padding: const EdgeInsets.symmetric(vertical: 8),
                         itemCount: widget.items.length,
                         itemBuilder: (context, index) {
                           return _buildItem(widget.items[index], index);
@@ -172,7 +171,7 @@ class _MenuDropDownState extends State<MenuDropDown> {
 
   Widget _buildItem(dynamic entry, int index) {
     Color? backgroundColor;
-    backgroundColor = AppTheme.background(context);
+    backgroundColor = Colours.white;
 
     return Material(
       color: backgroundColor,

@@ -55,7 +55,7 @@ class _SuggestionFieldState extends State<SuggestionField> {
           MenuDropDown(
             height: widget.height,
             width: widget.width * 0.25,
-            colour: Colours.transparent,
+            colour: Colours.white,
             size: 16,
             items: widget.items,
             onSelected: (value) {
