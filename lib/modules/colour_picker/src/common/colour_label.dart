@@ -84,6 +84,7 @@ class _ColourLabelState extends State<ColourLabel> {
               MenuItem(label: 'HSL', value: 'hsl'),
               MenuItem(label: 'HSV', value: 'hsv'),
             ],
+            setStateCallback: () => setState(() {}),
           ),
           Spacer(),
           Word(getViewForFormat(selectedFormat), fontSize: 14),
