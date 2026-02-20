@@ -285,9 +285,9 @@ class _SimpleMenuState<T> extends State<SimpleMenu<T>> {
 
     Color? backgroundColor;
     if (isHighlighted) {
-      backgroundColor = Theme.of(context).colorScheme.primary.withOpacity(0.12);
+      backgroundColor = AppTheme.background(context).colour.withOpacity(0.12);
     } else if (isSelected) {
-      backgroundColor = Theme.of(context).colorScheme.primary.withOpacity(0.08);
+      backgroundColor = AppTheme.primarySage.colour.withOpacity(0.08);
     }
 
     return Material(
