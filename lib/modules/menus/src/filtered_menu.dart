@@ -1,5 +1,114 @@
 part of '../menus.dart';
 
+/// A searchable dropdown menu with keyboard navigation and text filtering.
+///
+/// [FilteredMenu] combines a text field with a dropdown menu, allowing users to
+/// search through options by typing. As the user types, the menu filters to show
+/// only matching items. Perfect for large lists where users need to quickly find
+/// specific options.
+///
+/// ## Features
+///
+/// - **Live Search**: Filter menu items as you type
+/// - **Keyboard Navigation**: Use arrow keys to navigate, Enter to select, Escape to close
+/// - **Auto-Highlighting**: Automatically highlights the first matching item
+/// - **Visual Feedback**: Highlights current selection and keyboard-focused items
+/// - **Customizable Size**: Adjustable height, width, and cursor height
+///
+/// ## Quick Start
+///
+/// ```dart
+/// FilteredMenu<String>(
+///   items: [
+///     MenuItem(label: 'Apple', value: 'apple'),
+///     MenuItem(label: 'Banana', value: 'banana'),
+///     MenuItem(label: 'Cherry', value: 'cherry'),
+///   ],
+///   setStateCallback: () => setState(() {}),
+///   label: 'Select Fruit',
+///   onSelected: (value) {
+///     print('Selected: $value');
+///   },
+/// )
+/// ```
+///
+/// ## Constructor Parameters
+///
+/// | Parameter | Type | Required | Description |
+/// |-----------|------|----------|-------------|
+/// | `items` | `List<MenuItem>` | Yes | List of menu items to display |
+/// | `setStateCallback` | `VoidCallback` | Yes | Callback to trigger parent widget rebuild |
+/// | `initialSelection` | `T?` | No | Value to pre-select when widget loads |
+/// | `onSelected` | `ValueChanged<T?>?` | No | Callback when user selects an item |
+/// | `height` | `double?` | No | Height of the text field (default: 40) |
+/// | `width` | `double?` | No | Width of the text field and dropdown |
+/// | `label` | `String?` | No | Label text displayed above the field |
+/// | `keyboardType` | `TextInputType?` | No | Keyboard type for the text field |
+/// | `cursorHeight` | `double?` | No | Height of the text cursor |
+///
+/// ## Keyboard Shortcuts
+///
+/// - **Arrow Down**: Move to next item
+/// - **Arrow Up**: Move to previous item
+/// - **Enter**: Select highlighted item
+/// - **Escape**: Close the dropdown
+///
+/// ## Filtering Behavior
+///
+/// The menu filters items using case-insensitive substring matching. When you type:
+/// - Items containing the search text anywhere in their label are shown
+/// - The first item starting with the search text is automatically highlighted
+/// - The dropdown scrolls to keep the highlighted item visible
+///
+/// ## Example with Custom Sizing
+///
+/// ```dart
+/// FilteredMenu<int>(
+///   items: List.generate(
+///     100,
+///     (i) => MenuItem(label: 'Option ${i + 1}', value: i),
+///   ),
+///   setStateCallback: () => setState(() {}),
+///   height: 50,
+///   width: 300,
+///   cursorHeight: 24,
+///   label: 'Pick a Number',
+///   initialSelection: 42,
+///   onSelected: (value) {
+///     print('You picked: $value');
+///   },
+/// )
+/// ```
+///
+/// ## Example with Custom Types
+///
+/// ```dart
+/// class Product {
+///   final String name;
+///   final double price;
+///   Product(this.name, this.price);
+/// }
+///
+/// FilteredMenu<Product>(
+///   items: [
+///     MenuItem(label: 'Laptop', value: Product('Laptop', 999.99)),
+///     MenuItem(label: 'Mouse', value: Product('Mouse', 29.99)),
+///     MenuItem(label: 'Keyboard', value: Product('Keyboard', 79.99)),
+///   ],
+///   setStateCallback: () => setState(() {}),
+///   onSelected: (product) {
+///     if (product != null) {
+///       print('${product.name}: \$${product.price}');
+///     }
+///   },
+/// )
+/// ```
+///
+/// ## See Also
+///
+/// - [SimpleMenu] - A basic dropdown without search functionality
+/// - [SuggestionField] - Text field with dropdown suggestions
+/// - [MenuItem] - Individual menu item data structure
 class FilteredMenu<T> extends StatefulWidget {
   const FilteredMenu({
     super.key,

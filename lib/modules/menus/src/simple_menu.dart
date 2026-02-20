@@ -1,5 +1,134 @@
 part of '../menus.dart';
 
+/// A simple dropdown menu with keyboard navigation and click selection.
+///
+/// [SimpleMenu] is a lightweight dropdown menu that displays a list of options
+/// when clicked. Unlike [FilteredMenu], it doesn't have search functionality,
+/// making it ideal for shorter lists where users can easily scan all options.
+///
+/// ## Features
+///
+/// - **Clean Interface**: Simple click-to-open dropdown design
+/// - **Keyboard Navigation**: Use arrow keys to navigate, Enter to select, Escape to close
+/// - **Visual Feedback**: Highlights current selection and keyboard-focused items
+/// - **Customizable Size**: Adjustable height and width
+/// - **Auto-Scroll**: Automatically scrolls to keep highlighted items visible
+///
+/// ## Quick Start
+///
+/// ```dart
+/// SimpleMenu<String>(
+///   items: [
+///     MenuItem(label: 'Small', value: 's'),
+///     MenuItem(label: 'Medium', value: 'm'),
+///     MenuItem(label: 'Large', value: 'l'),
+///   ],
+///   setStateCallback: () => setState(() {}),
+///   label: 'Size',
+///   onSelected: (value) {
+///     print('Selected: $value');
+///   },
+/// )
+/// ```
+///
+/// ## Constructor Parameters
+///
+/// | Parameter | Type | Required | Description |
+/// |-----------|------|----------|-------------|
+/// | `items` | `List<MenuItem>` | Yes | List of menu items to display |
+/// | `setStateCallback` | `VoidCallback` | Yes | Callback to trigger parent widget rebuild |
+/// | `initialSelection` | `T?` | No | Value to pre-select when widget loads |
+/// | `onSelected` | `ValueChanged<T?>?` | No | Callback when user selects an item |
+/// | `height` | `double?` | No | Height of the field (default: 40) |
+/// | `width` | `double?` | No | Width of the field and dropdown |
+/// | `label` | `String?` | No | Label text displayed above the field |
+///
+/// ## Keyboard Shortcuts
+///
+/// - **Arrow Down**: Move to next item
+/// - **Arrow Up**: Move to previous item
+/// - **Enter**: Select highlighted item
+/// - **Escape**: Close the dropdown
+///
+/// ## When to Use
+///
+/// Use [SimpleMenu] when:
+/// - You have a small to medium list of options (< 20 items)
+/// - Users can easily scan the entire list
+/// - You don't need search/filter functionality
+/// - You want a clean, minimal dropdown interface
+///
+/// Use [FilteredMenu] instead when:
+/// - You have many options (20+ items)
+/// - Users need to search for specific items
+/// - Option labels are long or complex
+///
+/// ## Example with Initial Selection
+///
+/// ```dart
+/// String selectedSize = 'm';
+///
+/// SimpleMenu<String>(
+///   items: [
+///     MenuItem(label: 'Small', value: 's'),
+///     MenuItem(label: 'Medium', value: 'm'),
+///     MenuItem(label: 'Large', value: 'l'),
+///     MenuItem(label: 'Extra Large', value: 'xl'),
+///   ],
+///   setStateCallback: () => setState(() {}),
+///   initialSelection: selectedSize,
+///   label: 'Shirt Size',
+///   onSelected: (value) {
+///     setState(() {
+///       selectedSize = value ?? 'm';
+///     });
+///   },
+/// )
+/// ```
+///
+/// ## Example with Custom Width
+///
+/// ```dart
+/// SimpleMenu<int>(
+///   items: List.generate(
+///     10,
+///     (i) => MenuItem(label: '${i + 1} item(s)', value: i + 1),
+///   ),
+///   setStateCallback: () => setState(() {}),
+///   width: 200,
+///   height: 48,
+///   label: 'Quantity',
+///   onSelected: (quantity) {
+///     print('Quantity: $quantity');
+///   },
+/// )
+/// ```
+///
+/// ## Example with Enum Values
+///
+/// ```dart
+/// enum Priority { low, medium, high, critical }
+///
+/// SimpleMenu<Priority>(
+///   items: [
+///     MenuItem(label: 'Low', value: Priority.low),
+///     MenuItem(label: 'Medium', value: Priority.medium),
+///     MenuItem(label: 'High', value: Priority.high),
+///     MenuItem(label: 'Critical', value: Priority.critical),
+///   ],
+///   setStateCallback: () => setState(() {}),
+///   initialSelection: Priority.medium,
+///   onSelected: (priority) {
+///     print('Priority level: ${priority?.name}');
+///   },
+/// )
+/// ```
+///
+/// ## See Also
+///
+/// - [FilteredMenu] - Searchable dropdown menu for large lists
+/// - [SuggestionField] - Text field with dropdown suggestions
+/// - [MenuItem] - Individual menu item data structure
 class SimpleMenu<T> extends StatefulWidget {
   const SimpleMenu({
     super.key,

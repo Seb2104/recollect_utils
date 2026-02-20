@@ -1,5 +1,137 @@
 part of '../menus.dart';
 
+/// A text input field with an attached dropdown menu for quick suggestions.
+///
+/// [SuggestionField] combines a text field with a dropdown button, allowing users
+/// to either type their own input or select from predefined suggestions. This is
+/// perfect for fields where you want to allow custom input while also offering
+/// common options.
+///
+/// ## Features
+///
+/// - **Dual Input**: Type custom text or select from dropdown
+/// - **Flexible Alignment**: Customize dropdown position and text alignment
+/// - **Custom Styling**: Apply BoxDecoration for border, background, and more
+/// - **Compact Design**: Text field takes 75% width, dropdown button 25%
+/// - **Submit on Enter**: Pressing Enter submits the current text value
+///
+/// ## Quick Start
+///
+/// ```dart
+/// SuggestionField(
+///   items: ['Option 1', 'Option 2', 'Option 3'],
+///   onSelected: (value) {
+///     print('Selected or typed: $value');
+///   },
+/// )
+/// ```
+///
+/// ## Constructor Parameters
+///
+/// | Parameter | Type | Required | Default | Description |
+/// |-----------|------|----------|---------|-------------|
+/// | `items` | `List<dynamic>` | Yes | - | List of suggestion values for dropdown |
+/// | `onSelected` | `Function(dynamic)` | Yes | - | Callback when value is selected or submitted |
+/// | `height` | `double` | No | 30 | Height of the field |
+/// | `width` | `double` | No | 100 | Total width of the field |
+/// | `decoration` | `BoxDecoration` | No | White bg | Container decoration |
+/// | `alignDropdown` | `AlignType` | No | `fill` | Dropdown width alignment |
+/// | `alignDropdownText` | `TextAlign` | No | `left` | Text alignment in dropdown items |
+///
+/// ## Alignment Options
+///
+/// The `alignDropdown` parameter controls how the dropdown menu is sized:
+///
+/// - `AlignType.fill` - Dropdown fills the entire width of the field
+/// - `AlignType.left` - Dropdown aligns to left edge
+/// - `AlignType.right` - Dropdown aligns to right edge
+/// - `AlignType.center` - Dropdown centered below field
+///
+/// ## Example with Custom Styling
+///
+/// ```dart
+/// SuggestionField(
+///   items: ['Red', 'Green', 'Blue', 'Yellow'],
+///   height: 40,
+///   width: 200,
+///   decoration: BoxDecoration(
+///     border: Border.all(color: Colors.grey),
+///     borderRadius: BorderRadius.circular(8),
+///     color: Colors.white,
+///   ),
+///   alignDropdown: AlignType.fill,
+///   alignDropdownText: TextAlign.center,
+///   onSelected: (color) {
+///     print('Selected color: $color');
+///   },
+/// )
+/// ```
+///
+/// ## Example with Theme Integration
+///
+/// ```dart
+/// SuggestionField(
+///   items: ['Arial', 'Times New Roman', 'Courier', 'Helvetica'],
+///   height: 35,
+///   width: 250,
+///   decoration: BoxDecoration(
+///     color: AppTheme.surface(context).colour,
+///     border: Border.all(
+///       color: AppTheme.outline(context).colour,
+///     ),
+///     borderRadius: BorderRadius.circular(4),
+///   ),
+///   onSelected: (font) {
+///     setState(() {
+///       selectedFont = font;
+///     });
+///   },
+/// )
+/// ```
+///
+/// ## Example for Custom Units
+///
+/// ```dart
+/// // Perfect for entering measurements with unit suggestions
+/// SuggestionField(
+///   items: ['px', 'em', 'rem', '%', 'vh', 'vw'],
+///   height: 30,
+///   width: 120,
+///   alignDropdown: AlignType.fill,
+///   onSelected: (unit) {
+///     // User either typed a custom value or selected a unit
+///     print('Unit: $unit');
+///   },
+/// )
+/// ```
+///
+/// ## Usage Notes
+///
+/// - The text field occupies 75% of the total width
+/// - The dropdown button occupies 25% of the total width
+/// - Pressing Enter in the text field triggers `onSelected` with current text
+/// - Clicking a dropdown item populates the text field and triggers `onSelected`
+/// - The dropdown uses [MenuDropDown] internally for the suggestion menu
+///
+/// ## When to Use
+///
+/// Use [SuggestionField] when:
+/// - You want to allow both custom input and predefined options
+/// - Common values should be easily selectable
+/// - Users might need to enter variations of standard options
+/// - Example use cases: units (px, em, %), file extensions, tags, categories
+///
+/// Use other menus instead when:
+/// - [FilteredMenu] - Only predefined options allowed, large list needs search
+/// - [SimpleMenu] - Only predefined options allowed, small list
+/// - TextField - No suggestions needed, completely free-form input
+///
+/// ## See Also
+///
+/// - [FilteredMenu] - Searchable dropdown with type-to-filter
+/// - [SimpleMenu] - Basic dropdown menu without search
+/// - [MenuDropDown] - Internal component used for the dropdown portion
+/// - [AlignType] - Enum defining dropdown alignment options
 class SuggestionField extends StatefulWidget {
   final double height;
   final double width;
