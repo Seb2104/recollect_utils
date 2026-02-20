@@ -1,6 +1,6 @@
 ## 1.2.5
-- Decorations now???
-- Apparently my changes weren't synced
+- Updated documentation
+- Checking
 ## 1.2.4
 - You can now change where the dropdown is aligned to
 - You can change the alignment of text in the dropdown menu
