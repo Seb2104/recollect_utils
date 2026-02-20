@@ -4,14 +4,16 @@ class SuggestionField extends StatefulWidget {
   final double height;
   final double width;
   final List<dynamic> items;
+  final Function(dynamic value) onSelected;
   final Colour colour;
 
   const SuggestionField({
     super.key,
-    required this.height,
-    required this.width,
     required this.items,
-    required this.colour,
+    required this.onSelected,
+    this.height = 30,
+    this.width = 100,
+    this.colour = Colours.white,
   });
 
   @override
@@ -41,6 +43,7 @@ class _SuggestionFieldState extends State<SuggestionField> {
             items: widget.items,
             onSelected: (value) {
               _controller.text = value.toString();
+              widget.onSelected.call(value.toString());
               setState(() {});
             },
           ),
