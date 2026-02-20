@@ -11,13 +11,13 @@ class MenuDropDown extends StatefulWidget {
 
   const MenuDropDown({
     super.key,
-    required this.height,
     required this.width,
-    required this.colour,
-    required this.borderRadius,
-    required this.size,
     required this.items,
     required this.onSelected,
+    this.height = 50,
+    this.colour = Colours.white,
+    this.borderRadius = const BorderRadius.all(Radius.circular(10)),
+    this.size = 16,
   });
 
   @override
