@@ -19,7 +19,7 @@ class _FilteredMenuDemoState extends State<FilteredMenuDemo> {
           width: MediaQuery.of(context).size.width * 1,
           color: AppTheme.background(context),
           child: Center(
-            child: SimpleMenu(
+            child: FilteredMenu(
               label: 'Filtered Menu Demo',
               items: menuItems,
               width: 500,
