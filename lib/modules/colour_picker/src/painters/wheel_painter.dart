@@ -1,6 +1,5 @@
 part of '../../colour_picker.dart';
 
-
 /// Paints the full colour wheel for [WheelPicker].
 ///
 /// Three layers are composited to create the wheel:

@@ -1,6 +1,6 @@
 part of '../../recollect_utils.dart';
 
-/// A big recollect_utilsion of layout and transform extensions on nullable [Widget].
+/// A big collection of layout and transform extensions on nullable [Widget].
 ///
 /// These let you wrap any widget with common layout modifiers using clean,
 /// chainable syntax instead of deeply nested constructor calls:

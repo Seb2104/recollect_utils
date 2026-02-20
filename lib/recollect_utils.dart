@@ -87,12 +87,11 @@ import 'package:path/path.dart' as p;
 import 'package:unicode/unicode.dart' as unicode;
 
 export 'modules/colour/colour.dart';
-export 'modules/menu/menu.dart';
 export 'modules/colour_picker/colour_picker.dart';
+export 'modules/menus/menus.dart';
 
 part 'core/constants/bases.dart';
 part 'core/constants/colour_pickers.dart';
-part 'modules/colour/constants/colours.dart';
 part 'core/constants/moment.dart';
 part 'core/constants/packaged_fonts.dart';
 part 'core/constants/picker_style.dart';
@@ -107,6 +106,7 @@ part 'core/extensions/list.dart';
 part 'core/extensions/num.dart';
 part 'core/extensions/string.dart';
 part 'core/extensions/widget.dart';
+part 'core/helpers/collect_icons.dart';
 part 'core/helpers/fonts.dart';
 part 'core/presentation/action_icon.dart';
 part 'core/presentation/app_theme.dart';
@@ -118,3 +118,4 @@ part 'core/presentation/word.dart';
 part 'core/utils/notifications.dart';
 part 'core/utils/radix.dart';
 part 'core/utils/strings.dart';
+part 'modules/colour/constants/colours.dart';

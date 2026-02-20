@@ -40,7 +40,7 @@ typedef Font = String;
 /// ## How It Works
 ///
 /// 1. On first access, the constructor scans platform-specific directories.
-/// 2. [getFontPaths] lazily recollect_utilss all `.ttf`/`.otf` file paths.
+/// 2. [getFontPaths] lazily collects all `.ttf`/`.otf` file paths.
 /// 3. [getFontMap] builds a `{name: path}` lookup from those paths.
 /// 4. [loadFont] reads the bytes and registers them with [FontLoader].
 ///

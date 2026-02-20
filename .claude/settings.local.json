@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmake:*)",
+      "Bash(flutter doctor:*)",
+      "Bash(flutter pub get:*)",
+      "Bash(flutter clean:*)",
+      "Bash(flutter run:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

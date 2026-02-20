@@ -1,6 +1,6 @@
-part of '../menu.dart';
+part of '../../menus.dart';
 
-/// A single selectable entry in a [Menu] dropdown.
+/// A single selectable entry in a [SimpleMenu] dropdown.
 ///
 /// Each item carries a human-readable [label] (displayed in the dropdown)
 /// and an arbitrary [value] string (used for programmatic identification).

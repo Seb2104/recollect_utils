@@ -1,6 +1,5 @@
 part of '../../colour_picker.dart';
 
-
 /// Shared geometry and coordinate utilities for colour picker gesture handling.
 ///
 /// Provides two core transformations used by all picker gesture detectors:

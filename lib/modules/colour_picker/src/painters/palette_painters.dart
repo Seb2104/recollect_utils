@@ -1,6 +1,5 @@
 part of '../../colour_picker.dart';
 
-
 /// Paints an HSV palette where **hue is the free variable** (controlled by
 /// an external slider).
 ///

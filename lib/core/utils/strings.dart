@@ -992,7 +992,7 @@ class Strings {
     return string.substring(0, index);
   }
 
-  /// hide the default ctor as this is a recollect_utilsion of statics.
+  /// hide the default ctor as this is a collection of statics.
   /// true if the [string] is null, or is a zero length String
   static bool isEmpty(String? string) {
     if (string == null) {

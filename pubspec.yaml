@@ -1,6 +1,6 @@
 name: recollect_utils
 description: "All you'll ever need to create windows applications"
-version: 1.0.0
+version: 1.1.0
 homepage: https://recollect.cc
 repository: https://github.com/Seb2104/recollect_utils.git
 topics:
@@ -12,7 +12,7 @@ topics:
 
 environment:
   sdk: ^3.10.8
-  flutter: '>=3.3.0'
+  flutter: '>=3.10.8'
 
 dependencies:
   flutter:
@@ -29,4 +29,4 @@ flutter:
   plugin:
     platforms:
       windows:
-        pluginClass: RecollectPluginCApi
+        pluginClass: RecollectUtilsPluginCApi

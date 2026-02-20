@@ -1,4 +1,4 @@
-// ignore_for_file: recollect_utilsion_methods_unrelated_type
+// ignore_for_file: collection_methods_unrelated_type
 
 part of '../../recollect_utils.dart';
 

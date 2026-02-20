@@ -3,7 +3,7 @@ part of '../../colour_picker.dart';
 /// A dropdown-driven colour value display that lets the user switch between
 /// output formats on the fly.
 ///
-/// Shows the current colour's value as text, with a [Menu] dropdown to pick
+/// Shows the current colour's value as text, with a [SimpleMenu] dropdown to pick
 /// which format to display:
 ///
 /// | Format | Example Output        |
@@ -74,7 +74,7 @@ class _ColourLabelState extends State<ColourLabel> {
       height: widget.height,
       child: Row(
         children: [
-          Menu(
+          SimpleMenu(
             height: 40,
             width: 100,
             // value: selectedFormat,
