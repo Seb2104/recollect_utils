@@ -1,3 +1,5 @@
+## 1.2.4
+- You can now change where the dropdown is aligned to
 ## 1.2.3
 - FIXED TextField text being misaligned due to padding
 - Made the dropdown items the same size as their parents

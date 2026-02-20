@@ -22,16 +22,8 @@ class _SuggestionFieldDemoState extends State<SuggestionFieldDemo> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SuggestionField(
-                height: 50,
-                width: 100,
-                items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                onSelected: (value) {
-                  print(value);
-                },
-              ),
-              SizedBox(height: 40),
-              SuggestionField(
                 alignDropdown: AlignType.center,
+                alignDropdownText: TextAlign.center,
                 height: 35,
                 width: 500,
                 onSelected: (value) {

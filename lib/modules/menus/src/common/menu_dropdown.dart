@@ -9,7 +9,8 @@ class MenuDropDown extends StatefulWidget {
   final List<dynamic> items;
   final void Function(dynamic value) onSelected;
   final double dropdownWidth;
-  final AlignType alignType;
+  final AlignType alignDropdown;
+  final TextAlign alignText;
 
   const MenuDropDown({
     super.key,
@@ -21,7 +22,8 @@ class MenuDropDown extends StatefulWidget {
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
     this.iconSize = 16,
     required this.dropdownWidth,
-    this.alignType = AlignType.fill,
+    this.alignDropdown = AlignType.fill,
+    this.alignText = TextAlign.left,
   });
 
   @override
@@ -131,14 +133,14 @@ class _MenuDropDownState extends State<MenuDropDown> {
   }
 
   OverlayEntry _createOverlayEntry() {
-    final double _dropdownWidth = switch (widget.alignType) {
+    final double _dropdownWidth = switch (widget.alignDropdown) {
       (AlignType.left || AlignType.center || AlignType.right) =>
         widget.dropdownWidth / 2,
       (AlignType.fill) => widget.dropdownWidth,
     };
 
-    final Offset _alignOffset = switch (widget.alignType){
-      (AlignType.fill  || AlignType.left) => Offset(-(widget.width * 3), 0),
+    final Offset _alignOffset = switch (widget.alignDropdown) {
+      (AlignType.fill || AlignType.left) => Offset(-(widget.width * 3), 0),
       AlignType.center => Offset(-(widget.width * 2), 0),
       AlignType.right => Offset(-(widget.width * 1), 0),
     };
@@ -146,7 +148,6 @@ class _MenuDropDownState extends State<MenuDropDown> {
     /// Offset(-(widget.width * 3), 0), = fill + left
     /// Offset(-(widget.width * 2), 0), = center
     /// Offset(-(widget.width * 1), 0), = right
-
 
     return OverlayEntry(
       builder: (context) => GestureDetector(
@@ -205,7 +206,7 @@ class _MenuDropDownState extends State<MenuDropDown> {
         child: Container(
           height: 48,
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Row(children: [Expanded(child: Word('$entry'))]),
+          child: Row(children: [Expanded(child: Word('$entry', textAlign: widget.alignText,))]),
         ),
       ),
     );
