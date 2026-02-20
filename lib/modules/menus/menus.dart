@@ -7,4 +7,3 @@ import 'package:flutter/services.dart';
 part 'src/common/menu_item.dart';
 part 'src/filtered_menu.dart';
 part 'src/simple_menu.dart';
-part 'src/ticker.dart';
