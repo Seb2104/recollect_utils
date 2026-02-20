@@ -57,6 +57,7 @@ class _SuggestionFieldState extends State<SuggestionField> {
           ),
           MenuDropDown(
             height: widget.height,
+            dropdownWidth: widget.width,
             width: widget.width * 0.25,
             colour: widget.colour,
             iconSize: 16,
@@ -66,7 +67,6 @@ class _SuggestionFieldState extends State<SuggestionField> {
               widget.onSelected.call(value.toString());
               setState(() {});
             },
-            dropdownWidth: widget.width,
           ),
         ],
       ),

@@ -24,7 +24,7 @@ class _SuggestionFieldDemoState extends State<SuggestionFieldDemo> {
               SuggestionField(
                 colour: AppTheme.surface(context).colour,
                 height: 50,
-                width: 200,
+                width: 100,
                 items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                 onSelected: (value) {
                   print(value);
@@ -33,7 +33,7 @@ class _SuggestionFieldDemoState extends State<SuggestionFieldDemo> {
               SizedBox(height: 40),
               SuggestionField(
                 height: 35,
-                width: 100,
+                width: 500,
                 onSelected: (value) {
                   print(value);
                 },

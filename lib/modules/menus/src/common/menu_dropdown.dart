@@ -18,7 +18,8 @@ class MenuDropDown extends StatefulWidget {
     this.height = 50,
     this.colour = Colours.white,
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
-    this.iconSize = 16, required this.dropdownWidth,
+    this.iconSize = 16,
+    required this.dropdownWidth,
   });
 
   @override
@@ -138,12 +139,13 @@ class _MenuDropDownState extends State<MenuDropDown> {
           child: Stack(
             children: [
               CompositedTransformFollower(
+                offset: Offset(-(widget.width * 3), 0),
                 link: _layerLink,
                 targetAnchor: Alignment.bottomLeft,
                 followerAnchor: Alignment.topLeft,
                 showWhenUnlinked: false,
                 child: SizedBox(
-                  width: 100,
+                  width: widget.dropdownWidth,
                   child: Material(
                     elevation: 8,
                     borderRadius: BorderRadius.circular(8),
@@ -186,11 +188,4 @@ class _MenuDropDownState extends State<MenuDropDown> {
       ),
     );
   }
-}
-
-class IconStyle {
-  final double size;
-  final Colour colour;
-
-  IconStyle({required this.size, required this.colour});
 }
