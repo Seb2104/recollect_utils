@@ -1,3 +1,6 @@
+## 1.2.3
+- FIXED TextField text being misaligned due to padding
+- Made the dropdown items the same size as their parents
 ## 1.2.2
 - Improved the styling of items in a SuggestionField
 ## 1.2.1
