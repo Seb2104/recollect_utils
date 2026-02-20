@@ -1,3 +1,7 @@
+## 1.1.0
+
+Created the menus module that now separates the filtered menu from the simple menu
+
 ## 1.0.0
 
 Everything is now complete
