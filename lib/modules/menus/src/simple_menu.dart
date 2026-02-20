@@ -48,9 +48,7 @@ class _SimpleMenuState<T> extends State<SimpleMenu<T>> {
               border: const OutlineInputBorder(),
               label: widget.label != null ? Word(widget.label!) : null,
               suffixIcon: Icon(
-                _isOverlayVisible
-                    ? Icons.arrow_drop_up
-                    : Icons.arrow_drop_down,
+                _isOverlayVisible ? Icons.arrow_drop_up : Icons.arrow_drop_down,
               ),
             ),
             child: Text(
@@ -163,8 +161,7 @@ class _SimpleMenuState<T> extends State<SimpleMenu<T>> {
   }
 
   void _handleEnter() {
-    if (_currentHighlight != null &&
-        _currentHighlight! < widget.items.length) {
+    if (_currentHighlight != null && _currentHighlight! < widget.items.length) {
       final entry = widget.items[_currentHighlight!];
       _selectEntry(entry, _currentHighlight!);
     }
