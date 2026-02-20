@@ -43,6 +43,8 @@ class _SuggestionFieldState extends State<SuggestionField> {
                 focusedBorder: InputBorder.none,
                 errorBorder: InputBorder.none,
                 focusedErrorBorder: InputBorder.none,
+                hoverColor: Colours.transparent,
+                focusColor: Colours.transparent,
               ),
               controller: _controller,
               onSubmitted: (value) {
