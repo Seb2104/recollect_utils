@@ -21,7 +21,7 @@ class _MenuItemsDemoState extends State<MenuItemsDemo> {
           width: MediaQuery.of(context).size.width * 1,
           color: AppTheme.background(context),
           child: Center(
-            child: MenuItems(
+            child: MenuDropDown(
               items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
               width: 500,
               height: 100,

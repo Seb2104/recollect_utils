@@ -1,6 +1,6 @@
-part of '../menus.dart';
+part of '../../menus.dart';
 
-class MenuItems extends StatefulWidget {
+class MenuDropDown extends StatefulWidget {
   final double height;
   final double width;
   final Colour colour;
@@ -9,7 +9,7 @@ class MenuItems extends StatefulWidget {
   final List<dynamic> items;
   final void Function(dynamic value) onSelected;
 
-  const MenuItems({
+  const MenuDropDown({
     super.key,
     required this.height,
     required this.width,
@@ -21,10 +21,10 @@ class MenuItems extends StatefulWidget {
   });
 
   @override
-  State<MenuItems> createState() => _MenuItemsState();
+  State<MenuDropDown> createState() => _MenuDropDownState();
 }
 
-class _MenuItemsState extends State<MenuItems> {
+class _MenuDropDownState extends State<MenuDropDown> {
   final LayerLink _layerLink = LayerLink();
   final ScrollController _scrollController = ScrollController();
 
