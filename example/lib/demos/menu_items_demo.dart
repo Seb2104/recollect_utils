@@ -25,7 +25,7 @@ class _MenuItemsDemoState extends State<MenuItemsDemo> {
               items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
               width: 500,
               height: 100,
-              colour: Colours.black,
+              colour: Colours.white,
               borderRadius: BorderRadius.all(Radius.circular(10)),
               size: 39,
               onSelected: (T) {

@@ -76,7 +76,6 @@ library;
 import 'dart:io';
 import 'dart:math' as math;
 
-import 'package:recollect_utils/modules/colour/colour.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart' hide FilterCallback, SearchCallback;
@@ -84,6 +83,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart' as p;
+import 'package:recollect_utils/modules/colour/colour.dart';
 import 'package:unicode/unicode.dart' as unicode;
 
 export 'modules/colour/colour.dart';

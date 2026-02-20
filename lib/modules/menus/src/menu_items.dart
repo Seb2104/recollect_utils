@@ -25,25 +25,68 @@ class MenuItems extends StatefulWidget {
 }
 
 class _MenuItemsState extends State<MenuItems> {
-  bool _isOverlayVisible = false;
-  OverlayEntry? _overlayEntry;
   final LayerLink _layerLink = LayerLink();
   final ScrollController _scrollController = ScrollController();
 
+  OverlayEntry? _overlayEntry;
+  bool _isOverlayVisible = false;
+
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          _toggleOverlay();
-        });
-      },
-      child: Icon(
-        _isOverlayVisible ? Icons.arrow_drop_up : Icons.arrow_drop_down,
-        color: widget.colour,
-        size: widget.size,
+    return CompositedTransformTarget(
+      link: _layerLink,
+      child: SizedBox(
+        height: widget.height,
+        width: widget.width,
+        child: InkWell(
+          onTap: _toggleOverlay,
+          child: Icon(
+            _isOverlayVisible ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+          ),
+        ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    HardwareKeyboard.instance.addHandler(_handleKeyEvent);
+  }
+
+  @override
+  void dispose() {
+    HardwareKeyboard.instance.removeHandler(_handleKeyEvent);
+    _overlayEntry?.remove();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  bool _handleKeyEvent(KeyEvent event) {
+    if (!_isOverlayVisible) return false;
+    if (event is! KeyDownEvent) return false;
+
+    final key = event.logicalKey;
+
+    if (key == LogicalKeyboardKey.arrowDown) {
+      return true;
+    }
+
+    if (key == LogicalKeyboardKey.arrowUp) {
+      return true;
+    }
+
+    if (key == LogicalKeyboardKey.enter ||
+        key == LogicalKeyboardKey.numpadEnter) {
+      return true;
+    }
+
+    if (key == LogicalKeyboardKey.escape) {
+      _hideOverlay();
+      return true;
+    }
+
+    return false;
   }
 
   void _toggleOverlay() {
@@ -76,6 +119,13 @@ class _MenuItemsState extends State<MenuItems> {
     _overlayEntry = null;
   }
 
+  void _selectEntry(dynamic entry) {
+    setState(() {});
+    widget.onSelected.call(entry);
+
+    _hideOverlay();
+  }
+
   OverlayEntry _createOverlayEntry() {
     return OverlayEntry(
       builder: (context) => GestureDetector(
@@ -103,9 +153,10 @@ class _MenuItemsState extends State<MenuItems> {
                       child: ListView.builder(
                         controller: _scrollController,
                         shrinkWrap: true,
+                        padding: const EdgeInsets.symmetric(vertical: 8),
                         itemCount: widget.items.length,
                         itemBuilder: (context, index) {
-                          return _buildItem(widget.items[index]);
+                          return _buildItem(widget.items[index], index);
                         },
                       ),
                     ),
@@ -119,12 +170,19 @@ class _MenuItemsState extends State<MenuItems> {
     );
   }
 
-  Widget _buildItem(dynamic item) {
+  Widget _buildItem(dynamic entry, int index) {
+    Color? backgroundColor;
+    backgroundColor = AppTheme.background(context);
+
     return Material(
-      color: widget.colour,
+      color: backgroundColor,
       child: InkWell(
-        onTap: () => widget.onSelected.call(item),
-        child: Row(children: [Expanded(child: Text('$item'))]),
+        onTap: () => _selectEntry(entry),
+        child: Container(
+          height: 48,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(children: [Expanded(child: Text('$entry'))]),
+        ),
       ),
     );
   }
