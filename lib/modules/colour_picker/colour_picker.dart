@@ -24,9 +24,9 @@ library;
 
 import 'dart:math';
 
-import 'package:recollect_utils/recollect_utils.dart';
-import 'package:recollect_utils/modules/colour_picker/src/common/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:recollect_utils/modules/colour_picker/src/common/constant.dart';
+import 'package:recollect_utils/recollect_utils.dart';
 
 part 'pickers/picker_ring.dart';
 part 'pickers/picker_slides.dart';

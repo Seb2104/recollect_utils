@@ -20,6 +20,7 @@ class _SuggestionFieldDemoState extends State<SuggestionFieldDemo> {
           color: AppTheme.background(context),
           child: Center(
             child: SuggestionField(
+              colour: Colours.white,
               height: 50,
               width: 200,
               items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],

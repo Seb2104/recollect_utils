@@ -13,7 +13,7 @@ class SuggestionField extends StatefulWidget {
     required this.onSelected,
     this.height = 30,
     this.width = 100,
-    this.colour = Colours.white,
+    this.colour = Colours.transparent,
   });
 
   @override
@@ -25,15 +25,25 @@ class _SuggestionFieldState extends State<SuggestionField> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: widget.height,
       width: widget.width,
+      decoration: BoxDecoration(color: widget.colour),
       child: Row(
         children: [
           SizedBox(
             height: widget.height,
             width: widget.width * 0.75,
             child: TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(borderSide: BorderSide.none),
+                fillColor: Colours.transparent,
+                disabledBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                errorBorder: InputBorder.none,
+                focusedErrorBorder: InputBorder.none,
+              ),
               controller: _controller,
               onSubmitted: (value) {
                 widget.onSelected.call(value);
@@ -43,7 +53,7 @@ class _SuggestionFieldState extends State<SuggestionField> {
           MenuDropDown(
             height: widget.height,
             width: widget.width * 0.25,
-            colour: widget.colour,
+            colour: Colours.transparent,
             size: 16,
             items: widget.items,
             onSelected: (value) {
