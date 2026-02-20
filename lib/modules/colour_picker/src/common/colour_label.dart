@@ -75,16 +75,16 @@ class _ColourLabelState extends State<ColourLabel> {
       child: Row(
         children: [
           SimpleMenu(
-            height: 40,
-            width: 100,
+            // height: 40,
+            // width: 100,
             // value: selectedFormat,
-            items: [
-              MenuItem(label: 'b256', value: 'b256'),
-              MenuItem(label: 'HEX', value: 'hex'),
-              MenuItem(label: 'aRGB', value: 'argb'),
-              MenuItem(label: 'HSL', value: 'hsl'),
-              MenuItem(label: 'HSV', value: 'hsv'),
-            ],
+            // items: [
+            //   MenuItem(label: 'b256', value: 'b256'),
+            //   MenuItem(label: 'HEX', value: 'hex'),
+            //   MenuItem(label: 'aRGB', value: 'argb'),
+            //   MenuItem(label: 'HSL', value: 'hsl'),
+            //   MenuItem(label: 'HSV', value: 'hsv'),
+            // ],
           ),
           Spacer(),
           Word(getViewForFormat(selectedFormat), fontSize: 14),

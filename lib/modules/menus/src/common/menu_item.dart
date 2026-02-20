@@ -14,27 +14,4 @@ class MenuItem {
   final dynamic value;
 
   const MenuItem({required this.label, required this.value});
-
-  Widget build(BuildContext context) {
-    final scope = MenuScope.of(context);
-    final config = scope.itemConfig;
-    final height = scope.itemHeight;
-
-    return InkWell(
-      onTap: () {
-        scope.controller.selectItem(this);
-      },
-      child: Container(
-        height: height,
-        padding: config.padding,
-        alignment: switch (config.alignment) {
-          TextAlign.left => Alignment.centerLeft,
-          TextAlign.center => Alignment.center,
-          TextAlign.right => Alignment.centerRight,
-          _ => Alignment.centerLeft,
-        },
-        child: Word(label, color: Colours.grey),
-      ),
-    );
-  }
 }
