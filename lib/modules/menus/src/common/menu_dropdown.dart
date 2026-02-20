@@ -171,7 +171,7 @@ class _MenuDropDownState extends State<MenuDropDown> {
 
   Widget _buildItem(dynamic entry, int index) {
     Color? backgroundColor;
-    backgroundColor = Colours.white;
+    backgroundColor = widget.colour;
 
     return Material(
       color: backgroundColor,
