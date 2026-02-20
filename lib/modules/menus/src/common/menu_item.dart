@@ -28,9 +28,10 @@ class MenuItem {
         height: height,
         padding: config.padding,
         alignment: switch (config.alignment) {
-          Aligned.left => Alignment.centerLeft,
-          Aligned.center => Alignment.center,
-          Aligned.right => Alignment.centerRight,
+          TextAlign.left => Alignment.centerLeft,
+          TextAlign.center => Alignment.center,
+          TextAlign.right => Alignment.centerRight,
+          _ => Alignment.centerLeft,
         },
         child: Word(label, color: Colours.grey),
       ),
