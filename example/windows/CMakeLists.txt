@@ -52,8 +52,8 @@ add_subdirectory(${FLUTTER_MANAGED_DIR})
 # Application build; see runner/CMakeLists.txt.
 add_subdirectory("runner")
 
-# Enable the test target.
-set(include_recollect_utils_tests TRUE)
+# Disable the test target to avoid GoogleTest CMake deprecation warnings.
+set(include_recollect_utils_tests FALSE)
 
 # Generated plugin build rules, which manage building the plugins and adding
 # them to the application.
