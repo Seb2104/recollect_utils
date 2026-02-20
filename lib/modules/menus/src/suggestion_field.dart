@@ -37,7 +37,8 @@ class _SuggestionFieldState extends State<SuggestionField> {
               child: TextField(
                 style: TextStyle(fontSize: 16),
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                  isDense: true,
+                  contentPadding: EdgeInsets.zero,
                   fillColor: Colours.transparent,
                   disabledBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
