@@ -32,24 +32,26 @@ class _SuggestionFieldState extends State<SuggestionField> {
       child: Row(
         children: [
           SizedBox(
-            height: widget.height,
             width: widget.width * 0.75,
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(borderSide: BorderSide.none),
-                fillColor: Colours.transparent,
-                disabledBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                errorBorder: InputBorder.none,
-                focusedErrorBorder: InputBorder.none,
-                hoverColor: Colours.transparent,
-                focusColor: Colours.transparent,
+            child: Center(
+              child: TextField(
+                style: TextStyle(fontSize: 16),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                  fillColor: Colours.transparent,
+                  disabledBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  errorBorder: InputBorder.none,
+                  focusedErrorBorder: InputBorder.none,
+                  hoverColor: Colours.transparent,
+                  focusColor: Colours.transparent,
+                ),
+                controller: _controller,
+                onSubmitted: (value) {
+                  widget.onSelected.call(value);
+                },
               ),
-              controller: _controller,
-              onSubmitted: (value) {
-                widget.onSelected.call(value);
-              },
             ),
           ),
           MenuDropDown(
