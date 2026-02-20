@@ -1,5 +1,9 @@
+## 1.2.5
+- Decorations now???
+- Apparently my changes weren't synced
 ## 1.2.4
 - You can now change where the dropdown is aligned to
+- You can change the alignment of text in the dropdown menu
 ## 1.2.3
 - FIXED TextField text being misaligned due to padding
 - Made the dropdown items the same size as their parents

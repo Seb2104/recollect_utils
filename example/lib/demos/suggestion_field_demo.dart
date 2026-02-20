@@ -17,7 +17,7 @@ class _SuggestionFieldDemoState extends State<SuggestionFieldDemo> {
         body: Container(
           height: MediaQuery.of(context).size.height * 1,
           width: MediaQuery.of(context).size.width * 1,
-          color: AppTheme.background(context),
+          color: AppTheme.darkBackground,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
