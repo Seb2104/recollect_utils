@@ -21,7 +21,7 @@ class _FilteredMenuDemoState extends State<FilteredMenuDemo> {
           child: Center(
             child: FilteredMenu(
               label: 'Filtered Menu Demo',
-              entries: menuItems,
+              items: menuItems,
               width: 500,
               setStateCallback: () => setState(() {}),
             ),

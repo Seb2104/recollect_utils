@@ -3,7 +3,7 @@ part of '../menus.dart';
 class FilteredMenu<T> extends StatefulWidget {
   const FilteredMenu({
     super.key,
-    required this.entries,
+    required this.items,
     required this.setStateCallback,
     this.initialSelection,
     this.onSelected,
@@ -14,7 +14,7 @@ class FilteredMenu<T> extends StatefulWidget {
     this.cursorHeight,
   });
 
-  final List<MenuItem> entries;
+  final List<MenuItem> items;
   final VoidCallback setStateCallback;
   final double? height;
   final double? width;
@@ -81,7 +81,7 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
     super.initState();
     _textController = TextEditingController();
     _focusNode = FocusNode();
-    _filteredEntries = widget.entries;
+    _filteredEntries = widget.items;
 
     _textController.addListener(_onTextChanged);
     _focusNode.addListener(_onFocusChanged);
@@ -109,8 +109,8 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
   void didUpdateWidget(FilteredMenu<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    if (oldWidget.entries != widget.entries) {
-      _filteredEntries = widget.entries;
+    if (oldWidget.items != widget.items) {
+      _filteredEntries = widget.items;
       _currentHighlight = null;
     }
 
@@ -123,7 +123,7 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
     final text = _textController.text;
 
     if (text.isNotEmpty) {
-      _filteredEntries = widget.entries.where((entry) {
+      _filteredEntries = widget.items.where((entry) {
         return entry.label.toLowerCase().contains(text.toLowerCase());
       }).toList();
       final searchText = text.toLowerCase();
@@ -138,17 +138,17 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
       setState(() {});
       widget.setStateCallback.call();
     } else {
-      _filteredEntries = widget.entries;
+      _filteredEntries = widget.items;
     }
   }
 
   void _initializeSelection() {
     if (widget.initialSelection != null) {
-      final index = widget.entries.indexWhere(
+      final index = widget.items.indexWhere(
         (e) => e.value == widget.initialSelection,
       );
       if (index != -1) {
-        _updateTextController(widget.entries[index].label);
+        _updateTextController(widget.items[index].label);
         _selectedEntryIndex = index;
       }
     }
@@ -282,7 +282,7 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
     if (_isOverlayVisible) return;
 
     setState(() {
-      _filteredEntries = widget.entries;
+      _filteredEntries = widget.items;
       _isOverlayVisible = true;
     });
 
