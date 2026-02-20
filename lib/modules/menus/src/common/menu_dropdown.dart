@@ -5,9 +5,10 @@ class MenuDropDown extends StatefulWidget {
   final double width;
   final Colour colour;
   final BorderRadius borderRadius;
-  final double size;
+  final double iconSize;
   final List<dynamic> items;
   final void Function(dynamic value) onSelected;
+  final double dropdownWidth;
 
   const MenuDropDown({
     super.key,
@@ -17,7 +18,7 @@ class MenuDropDown extends StatefulWidget {
     this.height = 50,
     this.colour = Colours.white,
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
-    this.size = 16,
+    this.iconSize = 16, required this.dropdownWidth,
   });
 
   @override
@@ -142,7 +143,7 @@ class _MenuDropDownState extends State<MenuDropDown> {
                 followerAnchor: Alignment.topLeft,
                 showWhenUnlinked: false,
                 child: SizedBox(
-                  width: widget.width,
+                  width: 100,
                   child: Material(
                     elevation: 8,
                     borderRadius: BorderRadius.circular(8),
@@ -180,7 +181,7 @@ class _MenuDropDownState extends State<MenuDropDown> {
         child: Container(
           height: 48,
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Row(children: [Expanded(child: Text('$entry'))]),
+          child: Row(children: [Expanded(child: Word('$entry'))]),
         ),
       ),
     );

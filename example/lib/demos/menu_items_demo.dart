@@ -27,11 +27,12 @@ class _MenuItemsDemoState extends State<MenuItemsDemo> {
               height: 100,
               colour: Colours.white,
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              size: 39,
+              iconSize: 39,
               onSelected: (T) {
                 _selected = T;
                 print(_selected);
               },
+              dropdownWidth: 500,
             ),
           ),
         ),

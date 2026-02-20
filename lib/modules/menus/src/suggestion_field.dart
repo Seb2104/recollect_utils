@@ -59,13 +59,14 @@ class _SuggestionFieldState extends State<SuggestionField> {
             height: widget.height,
             width: widget.width * 0.25,
             colour: widget.colour,
-            size: 16,
+            iconSize: 16,
             items: widget.items,
             onSelected: (value) {
               _controller.text = value.toString();
               widget.onSelected.call(value.toString());
               setState(() {});
             },
+            dropdownWidth: widget.width,
           ),
         ],
       ),
