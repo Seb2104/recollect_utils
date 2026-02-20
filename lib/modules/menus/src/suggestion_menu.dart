@@ -103,10 +103,10 @@ class _MenuItemsState extends State<MenuItems> {
                       child: ListView.builder(
                         controller: _scrollController,
                         shrinkWrap: true,
-                        padding: const EdgeInsets.symmetric(vertical: 8),
                         itemCount: widget.items.length,
-                        itemBuilder: (context, index) =>
-                            _buildItem(widget.items[index]),
+                        itemBuilder: (context, index) {
+                          return _buildItem(widget.items[index]);
+                        },
                       ),
                     ),
                   ),
@@ -124,11 +124,7 @@ class _MenuItemsState extends State<MenuItems> {
       color: widget.colour,
       child: InkWell(
         onTap: () => widget.onSelected.call(item),
-        child: Container(
-          height: 48,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Row(children: [Expanded(child: Text(item.label))]),
-        ),
+        child: Row(children: [Expanded(child: Text('$item'))]),
       ),
     );
   }

@@ -24,10 +24,10 @@ class _MenuItemsDemoState extends State<MenuItemsDemo> {
             child: MenuItems(
               items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
               width: 500,
-              height: 50,
+              height: 100,
               colour: Colours.black,
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              size: 16,
+              size: 39,
               onSelected: (T) {
                 _selected = T;
                 print(_selected);
