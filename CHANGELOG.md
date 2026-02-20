@@ -1,3 +1,5 @@
+## 1.2.2
+- Improved the styling of items in a SuggestionField
 ## 1.2.1
 - Testing
 ## 1.2.0
