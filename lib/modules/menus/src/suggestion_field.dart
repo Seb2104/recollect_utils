@@ -6,6 +6,7 @@ class SuggestionField extends StatefulWidget {
   final List<dynamic> items;
   final Function(dynamic value) onSelected;
   final BoxDecoration decoration;
+  final AlignType alignDropdown;
 
   const SuggestionField({
     super.key,
@@ -14,6 +15,7 @@ class SuggestionField extends StatefulWidget {
     this.height = 30,
     this.width = 100,
     this.decoration = const BoxDecoration(color: Colours.white),
+    this.alignDropdown = AlignType.fill,
   });
 
   @override
@@ -63,6 +65,7 @@ class _SuggestionFieldState extends State<SuggestionField> {
             width: widget.width * 0.25,
             iconSize: 16,
             items: widget.items,
+            alignType: widget.alignDropdown,
             onSelected: (value) {
               _controller.text = value.toString();
               widget.onSelected.call(value.toString());

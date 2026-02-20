@@ -9,6 +9,7 @@ class MenuDropDown extends StatefulWidget {
   final List<dynamic> items;
   final void Function(dynamic value) onSelected;
   final double dropdownWidth;
+  final AlignType alignType;
 
   const MenuDropDown({
     super.key,
@@ -20,6 +21,7 @@ class MenuDropDown extends StatefulWidget {
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
     this.iconSize = 16,
     required this.dropdownWidth,
+    this.alignType = AlignType.fill,
   });
 
   @override
@@ -129,6 +131,23 @@ class _MenuDropDownState extends State<MenuDropDown> {
   }
 
   OverlayEntry _createOverlayEntry() {
+    final double _dropdownWidth = switch (widget.alignType) {
+      (AlignType.left || AlignType.center || AlignType.right) =>
+        widget.dropdownWidth / 2,
+      (AlignType.fill) => widget.dropdownWidth,
+    };
+
+    final Offset _alignOffset = switch (widget.alignType){
+      (AlignType.fill  || AlignType.left) => Offset(-(widget.width * 3), 0),
+      AlignType.center => Offset(-(widget.width * 2), 0),
+      AlignType.right => Offset(-(widget.width * 1), 0),
+    };
+
+    /// Offset(-(widget.width * 3), 0), = fill + left
+    /// Offset(-(widget.width * 2), 0), = center
+    /// Offset(-(widget.width * 1), 0), = right
+
+
     return OverlayEntry(
       builder: (context) => GestureDetector(
         onTap: () {
@@ -138,28 +157,31 @@ class _MenuDropDownState extends State<MenuDropDown> {
         child: SizedBox.expand(
           child: Stack(
             children: [
-              CompositedTransformFollower(
-                offset: Offset(-(widget.width * 3), 0),
-                link: _layerLink,
-                targetAnchor: Alignment.bottomLeft,
-                followerAnchor: Alignment.topLeft,
-                showWhenUnlinked: false,
-                child: SizedBox(
-                  width: widget.dropdownWidth,
-                  child: Material(
-                    elevation: 8,
-                    borderRadius: BorderRadius.circular(8),
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        maxHeight: MediaQuery.of(context).size.height * 0.4,
-                      ),
-                      child: ListView.builder(
-                        controller: _scrollController,
-                        shrinkWrap: true,
-                        itemCount: widget.items.length,
-                        itemBuilder: (context, index) {
-                          return _buildItem(widget.items[index], index);
-                        },
+              SizedBox(
+                width: _dropdownWidth,
+                child: CompositedTransformFollower(
+                  offset: _alignOffset,
+                  link: _layerLink,
+                  targetAnchor: Alignment.bottomLeft,
+                  followerAnchor: Alignment.topLeft,
+                  showWhenUnlinked: false,
+                  child: SizedBox(
+                    width: widget.dropdownWidth,
+                    child: Material(
+                      elevation: 8,
+                      borderRadius: BorderRadius.circular(8),
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxHeight: MediaQuery.of(context).size.height * 0.4,
+                        ),
+                        child: ListView.builder(
+                          controller: _scrollController,
+                          shrinkWrap: true,
+                          itemCount: widget.items.length,
+                          itemBuilder: (context, index) {
+                            return _buildItem(widget.items[index], index);
+                          },
+                        ),
                       ),
                     ),
                   ),

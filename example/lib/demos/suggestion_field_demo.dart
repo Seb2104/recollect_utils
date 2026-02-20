@@ -31,12 +31,12 @@ class _SuggestionFieldDemoState extends State<SuggestionFieldDemo> {
               ),
               SizedBox(height: 40),
               SuggestionField(
+                alignDropdown: AlignType.center,
                 height: 35,
                 width: 500,
                 onSelected: (value) {
                   print(value);
                 },
-                // colour: AppTheme.surface(context).colour,
                 items: [
                   8,
                   9,
