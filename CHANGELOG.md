@@ -1,3 +1,7 @@
+## 1.1.2
+
+Added the SuggestionField class to menus
+
 ## 1.1.1
 
 Improved the SimpleMenu, making it more closely related to FilteredMenu
