@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'demos/filtered_menu_demo.dart';
+import 'package:recollect_utils_example/tests/test.dart';
 
 void main() {
-  runApp(FilteredMenuDemo());
+  runApp(Test());
 }

@@ -19,7 +19,10 @@ class _TestState extends State<Test> {
           width: MediaQuery.of(context).size.width * 1,
           color: AppTheme.background(context),
           child: Center(
-            child: Ticker(),
+            child: Ticker(
+              width: 100,
+              colour: Colours.blueGrey,
+            ),
           ),
         ),
       ),
