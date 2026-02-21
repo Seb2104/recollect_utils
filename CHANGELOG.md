@@ -1,3 +1,5 @@
+## 1.2.6
+- Fixed the menus that we didn't even know were broken
 ## 1.2.5
 - Updated documentation
 - Checking
