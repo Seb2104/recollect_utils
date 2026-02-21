@@ -162,6 +162,12 @@ class _SuggestionFieldState extends State<SuggestionField> {
   final TextEditingController _controller = TextEditingController();
 
   @override
+  void dispose() {
+    _controller;
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: widget.height,

@@ -4,13 +4,13 @@ class MenuDropDown extends StatefulWidget {
   final double height;
   final double width;
   final Colour colour;
-  final BorderRadius borderRadius;
   final double iconSize;
   final List<dynamic> items;
   final void Function(dynamic value) onSelected;
   final double dropdownWidth;
   final AlignType alignDropdown;
   final TextAlign alignText;
+  final BoxDecoration decoration;
 
   const MenuDropDown({
     super.key,
@@ -19,7 +19,7 @@ class MenuDropDown extends StatefulWidget {
     required this.onSelected,
     this.height = 50,
     this.colour = Colours.white,
-    this.borderRadius = const BorderRadius.all(Radius.circular(10)),
+    this.decoration = const BoxDecoration(),
     this.iconSize = 16,
     required this.dropdownWidth,
     this.alignDropdown = AlignType.fill,
@@ -165,8 +165,10 @@ class _MenuDropDownState extends State<MenuDropDown> {
               width: widget.dropdownWidth,
               child: Material(
                 elevation: 8,
-                borderRadius: BorderRadius.circular(8),
-                child: ConstrainedBox(
+                child: Container(
+                  decoration: widget.decoration.copyWith(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
                   constraints: BoxConstraints(
                     maxHeight: MediaQuery.of(context).size.height * 0.4,
                   ),
@@ -199,7 +201,11 @@ class _MenuDropDownState extends State<MenuDropDown> {
         child: Container(
           height: 48,
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Row(children: [Expanded(child: Word('$entry', textAlign: widget.alignText,))]),
+          child: Row(
+            children: [
+              Expanded(child: Word('$entry', textAlign: widget.alignText)),
+            ],
+          ),
         ),
       ),
     );

@@ -121,7 +121,7 @@ class FilteredMenu<T> extends StatefulWidget {
     this.label,
     this.keyboardType,
     this.cursorHeight,
-    this.decoration = const BoxDecoration(color: Colours.white),
+    this.decoration = const BoxDecoration(),
   });
 
   final List<MenuItem> items;
@@ -158,7 +158,7 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
       child: Container(
         height: widget.height,
         width: widget.width,
-        decoration: widget.decoration,
+        decoration: widget.decoration.copyWith(color: Colours.white),
         child: TextField(
           controller: _textController,
           focusNode: _focusNode,

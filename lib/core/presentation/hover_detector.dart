@@ -35,10 +35,10 @@ class HoverWidget extends StatefulWidget {
   const HoverWidget({required this.builder, this.opaque, super.key});
 
   @override
-  _HoverWidgetState createState() => _HoverWidgetState();
+  HoverWidgetState createState() => HoverWidgetState();
 }
 
-class _HoverWidgetState extends State<HoverWidget> {
+class HoverWidgetState extends State<HoverWidget> {
   bool isHovering = false;
 
   void onEvent(bool value) {

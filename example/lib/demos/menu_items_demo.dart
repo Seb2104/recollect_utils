@@ -26,7 +26,6 @@ class _MenuItemsDemoState extends State<MenuItemsDemo> {
               width: 500,
               height: 100,
               colour: Colours.white,
-              borderRadius: BorderRadius.all(Radius.circular(10)),
               iconSize: 39,
               onSelected: (T) {
                 _selected = T;
