@@ -139,6 +139,7 @@ class SimpleMenu<T> extends StatefulWidget {
     this.height = 40,
     this.width,
     this.label,
+    this.decoration = const BoxDecoration(color: Colours.white),
   });
 
   final List<MenuItem> items;
@@ -148,6 +149,7 @@ class SimpleMenu<T> extends StatefulWidget {
   final T? initialSelection;
   final ValueChanged<T?>? onSelected;
   final String? label;
+  final BoxDecoration decoration;
 
   @override
   State<SimpleMenu<T>> createState() => _SimpleMenuState<T>();
@@ -167,9 +169,10 @@ class _SimpleMenuState<T> extends State<SimpleMenu<T>> {
   Widget build(BuildContext context) {
     return CompositedTransformTarget(
       link: _layerLink,
-      child: SizedBox(
+      child: Container(
         height: widget.height,
         width: widget.width,
+        decoration: widget.decoration,
         child: InkWell(
           onTap: _toggleOverlay,
           child: InputDecorator(

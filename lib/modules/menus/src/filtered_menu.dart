@@ -121,6 +121,7 @@ class FilteredMenu<T> extends StatefulWidget {
     this.label,
     this.keyboardType,
     this.cursorHeight,
+    this.decoration = const BoxDecoration(color: Colours.white),
   });
 
   final List<MenuItem> items;
@@ -132,6 +133,7 @@ class FilteredMenu<T> extends StatefulWidget {
   final String? label;
   final TextInputType? keyboardType;
   final double? cursorHeight;
+  final BoxDecoration decoration;
 
   @override
   State<FilteredMenu<T>> createState() => _FilteredMenuState<T>();
@@ -153,9 +155,10 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
   Widget build(BuildContext context) {
     return CompositedTransformTarget(
       link: _layerLink,
-      child: SizedBox(
+      child: Container(
         height: widget.height,
         width: widget.width,
+        decoration: widget.decoration,
         child: TextField(
           controller: _textController,
           focusNode: _focusNode,

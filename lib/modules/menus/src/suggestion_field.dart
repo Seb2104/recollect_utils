@@ -164,9 +164,7 @@ class _SuggestionFieldState extends State<SuggestionField> {
     return Container(
       height: widget.height,
       width: widget.width,
-      decoration: widget.decoration.copyWith(
-        color: AppTheme.surface(context).colour,
-      ),
+      decoration: widget.decoration,
       child: Row(
         children: [
           SizedBox(
