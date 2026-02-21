@@ -36,6 +36,8 @@ class _MenuDropDownState extends State<MenuDropDown> {
 
   OverlayEntry? _overlayEntry;
   bool _isOverlayVisible = false;
+  late final double _dropdownWidth;
+  late final Offset _alignOffset;
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,17 @@ class _MenuDropDownState extends State<MenuDropDown> {
   void initState() {
     super.initState();
     HardwareKeyboard.instance.addHandler(_handleKeyEvent);
+    _dropdownWidth = switch (widget.alignDropdown) {
+      (AlignType.left || AlignType.center || AlignType.right) =>
+        widget.dropdownWidth / 2,
+      (AlignType.fill) => widget.dropdownWidth,
+    };
+
+    _alignOffset = switch (widget.alignDropdown) {
+      (AlignType.fill || AlignType.left) => Offset(-(widget.width * 3), 0),
+      AlignType.center => Offset(-(widget.width * 2), 0),
+      AlignType.right => Offset(-(widget.width * 1), 0),
+    };
   }
 
   @override
@@ -133,18 +146,6 @@ class _MenuDropDownState extends State<MenuDropDown> {
   }
 
   OverlayEntry _createOverlayEntry() {
-    final double _dropdownWidth = switch (widget.alignDropdown) {
-      (AlignType.left || AlignType.center || AlignType.right) =>
-        widget.dropdownWidth / 2,
-      (AlignType.fill) => widget.dropdownWidth,
-    };
-
-    final Offset _alignOffset = switch (widget.alignDropdown) {
-      (AlignType.fill || AlignType.left) => Offset(-(widget.width * 3), 0),
-      AlignType.center => Offset(-(widget.width * 2), 0),
-      AlignType.right => Offset(-(widget.width * 1), 0),
-    };
-
     return OverlayEntry(
       builder: (context) => Stack(
         children: [
@@ -162,7 +163,7 @@ class _MenuDropDownState extends State<MenuDropDown> {
             followerAnchor: Alignment.topLeft,
             showWhenUnlinked: false,
             child: SizedBox(
-              width: widget.dropdownWidth,
+              width: _dropdownWidth,
               child: Material(
                 elevation: 8,
                 child: Container(
