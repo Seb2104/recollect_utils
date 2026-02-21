@@ -147,7 +147,7 @@ class SuggestionField extends StatefulWidget {
     required this.onSelected,
     this.height = 30,
     this.width = 100,
-    this.decoration = const BoxDecoration(color: Colours.white),
+    this.decoration = const BoxDecoration(),
     this.alignDropdown = AlignType.fill,
     this.alignDropdownText = TextAlign.left,
   });
@@ -164,7 +164,7 @@ class _SuggestionFieldState extends State<SuggestionField> {
     return Container(
       height: widget.height,
       width: widget.width,
-      decoration: widget.decoration,
+      decoration: widget.decoration.copyWith(color: Colours.white, borderRadius: BorderRadius.all(Radius.circular(15))),
       child: Row(
         children: [
           SizedBox(

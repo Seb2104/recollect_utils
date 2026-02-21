@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recollect_utils_example/demos/suggestion_field_demo.dart';
+
+import 'demos/demos.dart';
 
 void main() {
-  runApp(SuggestionFieldDemo());
+  runApp(Demos());
 }
