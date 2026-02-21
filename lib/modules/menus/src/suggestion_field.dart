@@ -168,7 +168,7 @@ class _SuggestionFieldState extends State<SuggestionField> {
       width: widget.width,
       decoration: widget.decoration.copyWith(
         color: Colours.white,
-        borderRadius: BorderRadius.all(Radius.circular(15)),
+        borderRadius: BorderRadius.all(Radius.circular(5)),
       ),
       child: Row(
         children: [
