@@ -20,7 +20,6 @@ class _FilteredMenuDemoState extends State<FilteredMenuDemo> {
           color: AppTheme.background(context),
           child: Center(
             child: FilteredMenu(
-              label: 'Filtered Menu Demo',
               items: menuItems,
               width: 500,
               setStateCallback: () => setState(() {}),

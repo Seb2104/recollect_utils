@@ -118,10 +118,10 @@ class FilteredMenu<T> extends StatefulWidget {
     this.onSelected,
     this.height = 40,
     this.width,
-    this.label,
     this.keyboardType,
     this.cursorHeight,
     this.decoration = const BoxDecoration(),
+    this.inputDecoration = const InputDecoration(),
   });
 
   final List<MenuItem> items;
@@ -130,10 +130,10 @@ class FilteredMenu<T> extends StatefulWidget {
   final double? width;
   final T? initialSelection;
   final ValueChanged<T?>? onSelected;
-  final String? label;
   final TextInputType? keyboardType;
   final double? cursorHeight;
   final BoxDecoration decoration;
+  final InputDecoration inputDecoration;
 
   @override
   State<FilteredMenu<T>> createState() => _FilteredMenuState<T>();
@@ -158,7 +158,11 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
       child: Container(
         height: widget.height,
         width: widget.width,
-        decoration: widget.decoration.copyWith(color: Colours.white),
+        padding: EdgeInsets.only(left: 10),
+        decoration: widget.decoration.copyWith(
+          color: Colours.white,
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+        ),
         child: TextField(
           controller: _textController,
           focusNode: _focusNode,
@@ -173,9 +177,18 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
               _showOverlay();
             }
           },
-          decoration: InputDecoration(
-            border: const OutlineInputBorder(),
-            label: widget.label != null ? Word(widget.label!) : null,
+          decoration: widget.inputDecoration.copyWith(
+            isDense: true,
+            contentPadding: EdgeInsets.zero,
+            fillColor: Colours.transparent,
+            disabledBorder: InputBorder.none,
+            enabledBorder: InputBorder.none,
+            focusedBorder: InputBorder.none,
+            errorBorder: InputBorder.none,
+            focusedErrorBorder: InputBorder.none,
+            hoverColor: Colours.transparent,
+            focusColor: Colours.transparent,
+
             suffixIcon: IconButton(
               icon: _isOverlayVisible
                   ? const Icon(Icons.arrow_drop_up)
@@ -425,9 +438,6 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
   }
 
   OverlayEntry _createOverlayEntry() {
-    final renderBox = context.findRenderObject()! as RenderBox;
-    final size = renderBox.size;
-
     return OverlayEntry(
       builder: (context) => GestureDetector(
         onTap: () {
@@ -443,11 +453,10 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
                 followerAnchor: Alignment.topLeft,
                 showWhenUnlinked: false,
                 child: SizedBox(
-                  width: widget.width ?? size.width,
+                  width: widget.width,
 
                   child: Material(
-                    elevation: 8,
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(5),
                     child: ConstrainedBox(
                       constraints: BoxConstraints(
                         maxHeight: MediaQuery.of(context).size.height * 0.4,
@@ -477,9 +486,9 @@ class _FilteredMenuState<T> extends State<FilteredMenu<T>> {
 
     Color? backgroundColor;
     if (isHighlighted) {
-      backgroundColor = Theme.of(context).colorScheme.primary.withOpacity(0.12);
+      backgroundColor = widget.decoration.color?.withOpacity(0.12);
     } else if (isSelected) {
-      backgroundColor = Theme.of(context).colorScheme.primary.withOpacity(0.08);
+      backgroundColor = AppTheme.primarySage.withOpacity(0.08);
     }
 
     return Material(

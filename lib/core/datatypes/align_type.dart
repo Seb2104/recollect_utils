@@ -63,9 +63,4 @@ part of '../../recollect_utils.dart';
 ///
 /// - [SuggestionField] - Uses `alignDropdown` parameter
 /// - [MenuDropDown] - Internal component that implements alignment
-enum AlignType {
-  left,
-  center,
-  right,
-  fill,
-}
+enum AlignType { left, center, right, fill }

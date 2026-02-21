@@ -22,8 +22,8 @@ class _DemosState extends State<Demos> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               FilteredMenu(
-                label: 'Filtered Menu Demo',
                 items: menuItems,
+                height: 35,
                 width: 200,
                 setStateCallback: () => setState(() {}),
               ),
