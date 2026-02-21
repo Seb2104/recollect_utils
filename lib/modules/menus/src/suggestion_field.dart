@@ -138,6 +138,7 @@ class SuggestionField extends StatefulWidget {
   final List<dynamic> items;
   final Function(dynamic value) onSelected;
   final BoxDecoration decoration;
+  final InputDecoration inputDecoration;
   final AlignType alignDropdown;
   final TextAlign alignDropdownText;
 
@@ -148,6 +149,7 @@ class SuggestionField extends StatefulWidget {
     this.height = 30,
     this.width = 100,
     this.decoration = const BoxDecoration(),
+    this.inputDecoration = const InputDecoration(),
     this.alignDropdown = AlignType.fill,
     this.alignDropdownText = TextAlign.left,
   });
@@ -164,15 +166,19 @@ class _SuggestionFieldState extends State<SuggestionField> {
     return Container(
       height: widget.height,
       width: widget.width,
-      decoration: widget.decoration.copyWith(color: Colours.white, borderRadius: BorderRadius.all(Radius.circular(15))),
+      decoration: widget.decoration.copyWith(
+        color: Colours.white,
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+      ),
       child: Row(
         children: [
+          SizedBox(width: 10),
           SizedBox(
-            width: widget.width * 0.75,
+            width: ((widget.width * 0.75) - 10),
             child: Center(
               child: TextField(
                 style: TextStyle(fontSize: 16),
-                decoration: InputDecoration(
+                decoration: widget.inputDecoration.copyWith(
                   isDense: true,
                   contentPadding: EdgeInsets.zero,
                   fillColor: Colours.transparent,

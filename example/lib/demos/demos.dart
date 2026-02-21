@@ -32,10 +32,11 @@ class _DemosState extends State<Demos> {
                 alignDropdownText: TextAlign.center,
                 height: 35,
                 width: 200,
+                items: ints,
                 onSelected: (value) {
                   print(value);
+                  setState(() {});
                 },
-                items: ints,
               ),
             ],
           ),
@@ -45,7 +46,7 @@ class _DemosState extends State<Demos> {
   }
 }
 
-const List<int> ints = [
+List<int> ints = [
   8,
   9,
   10,
@@ -63,7 +64,7 @@ const List<int> ints = [
   48,
   72,
 ];
-const List<MenuItem> menuItems = [
+List<MenuItem> menuItems = [
   MenuItem(label: 'First', value: '1'),
   MenuItem(label: 'Second', value: '2'),
   MenuItem(label: 'Third', value: '3'),

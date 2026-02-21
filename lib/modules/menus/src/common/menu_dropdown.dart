@@ -126,8 +126,8 @@ class _MenuDropDownState extends State<MenuDropDown> {
   }
 
   void _selectEntry(dynamic entry) {
-    setState(() {});
     widget.onSelected.call(entry);
+    setState(() {});
 
     _hideOverlay();
   }
@@ -145,52 +145,44 @@ class _MenuDropDownState extends State<MenuDropDown> {
       AlignType.right => Offset(-(widget.width * 1), 0),
     };
 
-    /// Offset(-(widget.width * 3), 0), = fill + left
-    /// Offset(-(widget.width * 2), 0), = center
-    /// Offset(-(widget.width * 1), 0), = right
-
     return OverlayEntry(
-      builder: (context) => GestureDetector(
-        onTap: () {
-          _hideOverlay();
-        },
-        behavior: HitTestBehavior.translucent,
-        child: SizedBox.expand(
-          child: Stack(
-            children: [
-              SizedBox(
-                width: _dropdownWidth,
-                child: CompositedTransformFollower(
-                  offset: _alignOffset,
-                  link: _layerLink,
-                  targetAnchor: Alignment.bottomLeft,
-                  followerAnchor: Alignment.topLeft,
-                  showWhenUnlinked: false,
-                  child: SizedBox(
-                    width: widget.dropdownWidth,
-                    child: Material(
-                      elevation: 8,
-                      borderRadius: BorderRadius.circular(8),
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                          maxHeight: MediaQuery.of(context).size.height * 0.4,
-                        ),
-                        child: ListView.builder(
-                          controller: _scrollController,
-                          shrinkWrap: true,
-                          itemCount: widget.items.length,
-                          itemBuilder: (context, index) {
-                            return _buildItem(widget.items[index], index);
-                          },
-                        ),
-                      ),
-                    ),
+      builder: (context) => Stack(
+        children: [
+          GestureDetector(
+            onTap: () {
+              _hideOverlay();
+            },
+            behavior: HitTestBehavior.translucent,
+            child: SizedBox.expand(),
+          ),
+          CompositedTransformFollower(
+            offset: _alignOffset,
+            link: _layerLink,
+            targetAnchor: Alignment.bottomLeft,
+            followerAnchor: Alignment.topLeft,
+            showWhenUnlinked: false,
+            child: SizedBox(
+              width: widget.dropdownWidth,
+              child: Material(
+                elevation: 8,
+                borderRadius: BorderRadius.circular(8),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: MediaQuery.of(context).size.height * 0.4,
+                  ),
+                  child: ListView.builder(
+                    controller: _scrollController,
+                    shrinkWrap: true,
+                    itemCount: widget.items.length,
+                    itemBuilder: (context, index) {
+                      return _buildItem(widget.items[index], index);
+                    },
                   ),
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -199,10 +191,11 @@ class _MenuDropDownState extends State<MenuDropDown> {
     Color? backgroundColor;
     backgroundColor = widget.colour;
 
-    return Material(
-      color: backgroundColor,
-      child: InkWell(
-        onTap: () => _selectEntry(entry),
+    return GestureDetector(
+      onTap: () => _selectEntry(entry),
+      behavior: HitTestBehavior.opaque,
+      child: Material(
+        color: backgroundColor,
         child: Container(
           height: 48,
           padding: const EdgeInsets.symmetric(horizontal: 16),
