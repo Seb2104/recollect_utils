@@ -140,7 +140,8 @@ class SimpleMenu<T> extends StatefulWidget {
     this.width,
     this.label,
     this.decoration = const BoxDecoration(
-      color: Colors.transparent,
+      color: Colours.white,
+      borderRadius: BorderRadius.all(Radius.circular(4.0)),
     ),
   });
 

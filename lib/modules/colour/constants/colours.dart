@@ -22,8 +22,6 @@ part of '../../../recollect_utils.dart';
 /// [limeAccent], [yellowAccent], [amberAccent], [orangeAccent],
 /// [deepOrangeAccent].
 mixin class Colours {
-  Colours._();
-
   static const Colour transparent = Colour(
     alpha: 0x00,
     red: 0x00,
