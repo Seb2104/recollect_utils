@@ -139,7 +139,9 @@ class SimpleMenu<T> extends StatefulWidget {
     this.height = 40,
     this.width,
     this.label,
-    this.decoration = const BoxDecoration(color: Colours.white),
+    this.decoration = const BoxDecoration(
+      color: Colors.transparent,
+    ),
   });
 
   final List<MenuItem> items;

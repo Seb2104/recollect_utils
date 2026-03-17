@@ -23,6 +23,8 @@ class _DemosState extends State<Demos> {
             children: [
               SimpleMenu(
                 items: menuItems,
+                height: 35,
+                width: 200,
                 setStateCallback: () => setState(() {}),
               ),
               FilteredMenu(

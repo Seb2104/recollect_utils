@@ -77,6 +77,7 @@ part 'types/hsv_colour.dart';
 /// | [argb]  | `'255,255,0,0'`   |
 /// | [b256]  | Base-256 string   |
 class Colour extends ColourSpace implements Color {
+
   /// The alpha (opacity) channel, 0-255.
   @override
   final int alpha;
