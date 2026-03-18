@@ -110,30 +110,30 @@ part of '../menus.dart';
 /// - [SuggestionField] - Text field with dropdown suggestions
 /// - [MenuItem] - Individual menu item data structure
 class FilteredMenu<T> extends StatefulWidget {
+  final double? height;
+  final double? width;
+  final List<MenuItem> items;
+  final ValueChanged<T?>? onSelected;
+  final VoidCallback setStateCallback;
+  final T? initialSelection;
+  final TextInputType? keyboardType;
+  final double? cursorHeight;
+  final BoxDecoration decoration;
+  final InputDecoration inputDecoration;
+
   const FilteredMenu({
     super.key,
     required this.items,
     required this.setStateCallback,
     this.initialSelection,
     this.onSelected,
-    this.height = 40,
-    this.width,
+    this.height = 30,
+    this.width = 200,
     this.keyboardType,
     this.cursorHeight,
     this.decoration = const BoxDecoration(),
     this.inputDecoration = const InputDecoration(),
   });
-
-  final List<MenuItem> items;
-  final VoidCallback setStateCallback;
-  final double? height;
-  final double? width;
-  final T? initialSelection;
-  final ValueChanged<T?>? onSelected;
-  final TextInputType? keyboardType;
-  final double? cursorHeight;
-  final BoxDecoration decoration;
-  final InputDecoration inputDecoration;
 
   @override
   State<FilteredMenu<T>> createState() => _FilteredMenuState<T>();

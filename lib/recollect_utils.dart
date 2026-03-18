@@ -73,8 +73,13 @@
 /// - [Period] for human-friendly durations
 library;
 
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math' as math;
+import 'package:path/path.dart' as path;
+import 'package:path/path.dart';
+import 'package:super_editor/super_editor.dart' as sp;
+import 'package:super_editor/super_editor.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
@@ -120,3 +125,26 @@ part 'core/utils/notifications.dart';
 part 'core/utils/radix.dart';
 part 'core/utils/strings.dart';
 part 'modules/colour/constants/colours.dart';
+part 'modules/xtx/data/file_constants.dart';
+part 'modules/xtx/data/metadata_keys.dart';
+part 'modules/xtx/data/model_constants.dart';
+part 'modules/xtx/data/parse_result.dart';
+part 'modules/xtx/data/result.dart';
+part 'modules/xtx/models/asset.dart';
+part 'modules/xtx/models/header.dart';
+part 'modules/xtx/models/node.dart';
+part 'modules/xtx/parser/buffered_reader.dart';
+part 'modules/xtx/parser/components/asset_parser.dart';
+part 'modules/xtx/parser/components/header_parser.dart';
+part 'modules/xtx/parser/components/metadata_parser.dart';
+part 'modules/xtx/parser/components/node_parser.dart';
+part 'modules/xtx/parser/exceptions.dart';
+part 'modules/xtx/parser/metrics.dart';
+part 'modules/xtx/parser/streaming_parser.dart';
+part 'modules/xtx/parser/xtx_parser.dart';
+part 'modules/xtx/utils/byte_reader.dart';
+part 'modules/xtx/utils/file_system_manager.dart';
+part 'modules/xtx/utils/format.dart';
+part 'modules/xtx/xtx_document.dart';
+part 'modules/xtx/xtx_file.dart';
+part 'modules/xtx/xtx.dart';

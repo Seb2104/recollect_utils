@@ -130,13 +130,22 @@ part of '../menus.dart';
 /// - [SuggestionField] - Text field with dropdown suggestions
 /// - [MenuItem] - Individual menu item data structure
 class SimpleMenu<T> extends StatefulWidget {
+  final double height;
+  final double width;
+  final List<MenuItem> items;
+  final ValueChanged<T?>? onSelected;
+  final VoidCallback setStateCallback;
+  final T? initialSelection;
+  final String? label;
+  final BoxDecoration decoration;
+
   const SimpleMenu({
     super.key,
     required this.items,
     required this.setStateCallback,
     this.initialSelection,
     this.onSelected,
-    this.height = 40,
+    this.height = 30,
     this.width = 200,
     this.label,
     this.decoration = const BoxDecoration(
@@ -144,15 +153,6 @@ class SimpleMenu<T> extends StatefulWidget {
       borderRadius: BorderRadius.all(Radius.circular(4.0)),
     ),
   });
-
-  final List<MenuItem> items;
-  final VoidCallback setStateCallback;
-  final double height;
-  final double width;
-  final T? initialSelection;
-  final ValueChanged<T?>? onSelected;
-  final String? label;
-  final BoxDecoration decoration;
 
   @override
   State<SimpleMenu<T>> createState() => _SimpleMenuState<T>();

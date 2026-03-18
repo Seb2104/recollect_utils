@@ -34,9 +34,6 @@ class _DemosState extends State<Demos> {
                 setStateCallback: () => setState(() {}),
               ),
               SuggestionField(
-                alignDropdown: AlignType.left,
-                alignDropdownText: TextAlign.center,
-
                 height: 35,
                 width: 200,
                 items: ints,
