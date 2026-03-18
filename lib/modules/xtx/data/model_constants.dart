@@ -1,6 +1,5 @@
 part of '../../../recollect_utils.dart';
 
-
 const List<int> magicBytes = [88, 84, 88, 0];
 
 enum Attributions {

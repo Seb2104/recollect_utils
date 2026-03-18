@@ -1,6 +1,5 @@
 part of '../../../recollect_utils.dart';
 
-
 /// Index of node and asset locations in an XTX file
 ///
 /// Used by [XtxFileHandle] for lazy loading of nodes and assets.

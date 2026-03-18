@@ -1,6 +1,5 @@
 part of '../../../recollect_utils.dart';
 
-
 /// Result of parsing with metrics enabled
 ///
 /// Contains both the parsed file and performance metrics.

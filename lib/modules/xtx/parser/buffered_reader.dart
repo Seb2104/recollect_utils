@@ -1,6 +1,5 @@
 part of '../../../recollect_utils.dart';
 
-
 /// Efficient buffered reader for binary file parsing
 ///
 /// This class provides efficient byte-level reading from a [RandomAccessFile]

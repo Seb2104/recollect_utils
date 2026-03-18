@@ -96,55 +96,107 @@ export 'modules/colour_picker/colour_picker.dart';
 export 'modules/menus/menus.dart';
 
 part 'core/constants/bases.dart';
+
 part 'core/constants/colour_pickers.dart';
+
 part 'core/constants/moment.dart';
+
 part 'core/constants/packaged_fonts.dart';
+
 part 'core/constants/picker_style.dart';
+
 part 'core/constants/strings.dart';
+
 part 'core/constants/tab_view.dart';
+
 part 'core/datatypes/align_type.dart';
+
 part 'core/datatypes/moment.dart';
+
 part 'core/datatypes/period.dart';
+
 part 'core/extensions/build_context.dart';
+
 part 'core/extensions/double.dart';
+
 part 'core/extensions/int.dart';
+
 part 'core/extensions/list.dart';
+
 part 'core/extensions/num.dart';
+
 part 'core/extensions/string.dart';
+
 part 'core/extensions/widget.dart';
+
 part 'core/helpers/collect_icons.dart';
+
 part 'core/helpers/fonts.dart';
+
 part 'core/presentation/action_icon.dart';
+
 part 'core/presentation/app_theme.dart';
+
 part 'core/presentation/box.dart';
+
 part 'core/presentation/hover_detector.dart';
+
 part 'core/presentation/rounded_checkmark.dart';
+
 part 'core/presentation/tab_view.dart';
+
 part 'core/presentation/word.dart';
+
 part 'core/utils/notifications.dart';
+
 part 'core/utils/radix.dart';
+
 part 'core/utils/strings.dart';
+
 part 'modules/colour/constants/colours.dart';
+
 part 'modules/xtx/data/file_constants.dart';
+
 part 'modules/xtx/data/metadata_keys.dart';
+
 part 'modules/xtx/data/model_constants.dart';
+
 part 'modules/xtx/data/parse_result.dart';
+
 part 'modules/xtx/data/result.dart';
+
 part 'modules/xtx/models/asset.dart';
+
 part 'modules/xtx/models/header.dart';
+
 part 'modules/xtx/models/node.dart';
+
 part 'modules/xtx/parser/buffered_reader.dart';
+
 part 'modules/xtx/parser/components/asset_parser.dart';
+
 part 'modules/xtx/parser/components/header_parser.dart';
+
 part 'modules/xtx/parser/components/metadata_parser.dart';
+
 part 'modules/xtx/parser/components/node_parser.dart';
+
 part 'modules/xtx/parser/exceptions.dart';
+
 part 'modules/xtx/parser/metrics.dart';
+
 part 'modules/xtx/parser/streaming_parser.dart';
+
 part 'modules/xtx/parser/xtx_parser.dart';
+
 part 'modules/xtx/utils/byte_reader.dart';
+
 part 'modules/xtx/utils/file_system_manager.dart';
+
 part 'modules/xtx/utils/format.dart';
+
 part 'modules/xtx/xtx_document.dart';
+
 part 'modules/xtx/xtx_file.dart';
+
 part 'modules/xtx/xtx.dart';

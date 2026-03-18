@@ -1,6 +1,5 @@
 part of '../../../recollect_utils.dart';
 
-
 /// Base exception for all XTX parsing errors
 ///
 /// Includes context information about where the error occurred

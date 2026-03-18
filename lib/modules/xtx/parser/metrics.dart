@@ -1,6 +1,5 @@
 part of '../../../recollect_utils.dart';
 
-
 /// Tracks performance metrics during parsing
 ///
 /// This class records timing information, byte counts, and memory usage

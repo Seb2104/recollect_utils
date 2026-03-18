@@ -1,4 +1,5 @@
 part of '../../../../recollect_utils.dart';
+
 /// Parser for node metadata
 ///
 /// Handles parsing of key-value metadata pairs stored in nodes.

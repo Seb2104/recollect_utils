@@ -1,6 +1,5 @@
 part of '../../../recollect_utils.dart';
 
-
 /// Result of parsing an XTX file
 ///
 /// Contains the parsed data structures (header, nodes, assets)

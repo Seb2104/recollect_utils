@@ -1,6 +1,5 @@
 part of '../../../recollect_utils.dart';
 
-
 class FileSystemManager {
   Future<Result> renameFolder(String folderPath, String newName) async {
     try {

@@ -1,6 +1,5 @@
 part of "../../recollect_utils.dart";
 
-
 class xtxDocument {
   late final Format format;
   final BuildContext context;

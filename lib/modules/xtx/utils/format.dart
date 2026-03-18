@@ -1,6 +1,5 @@
 part of '../../../recollect_utils.dart';
 
-
 class Format {
   BuildContext context;
   sp.Editor editor;

@@ -1,6 +1,5 @@
 part of '../../../recollect_utils.dart';
 
-
 class Asset {
   final int id;
 

@@ -1,6 +1,5 @@
 part of '../../../recollect_utils.dart';
 
-
 /// Centralized constants for metadata keys used in XTX nodes
 ///
 /// This class contains all the string keys used for node metadata,
