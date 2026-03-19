@@ -11,11 +11,11 @@ sealed class Result<T> {
 final class Success<T> extends Result<T> {
   final T? value;
 
-  const Success([this.value = null]);
+  const Success([this.value]);
 }
 
 final class Failure<T> extends Result<T> {
   final T? error;
 
-  const Failure([this.error = null]);
+  const Failure([this.error]);
 }

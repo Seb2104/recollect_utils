@@ -1,4 +1,4 @@
-/// # Collect — The Developer's Repertoire
+/// # ReCollect — The Developer's Repertoire
 ///
 /// A comprehensive Flutter toolkit providing reusable utilities, extensions,
 /// custom datatypes, and UI widgets for rapid application development.
